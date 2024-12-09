@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block principal %}
+<div class="container d-flex justify-content-center align-items-center" style="height: 80vh;">
+    <div class="w-50 d-grid gap-3">
+        <a class="btn btn-verde fw-bold btn-lg w-100" href="{{url_for('tarefa_bp.nova_tarefa')}}">Nova Tarefa</a>
+        <a class="btn btn-verde fw-bold btn-lg w-100" href="{{url_for('tarefa_bp.minhas_tarefas')}}">Minhas Tarefas</a>
+    </div>
+</div>
+{% endblock principal %}

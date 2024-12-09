@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block principal %}
+<div class="container mt-4">
+    <a class="btn btn-verde" href="{{url_for('tarefa_bp.inicio')}}">Voltar ao início</a>
+    <br />
+    <h1 class="text-center text-dark">Lista de Tarefas</h1>
+    <br />
+    <div class="accordion" id="tarefaAccordion">
+        {% for tarefa in tarefas %}
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading{{ tarefa.tarefa_id }}">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ tarefa.tarefa_id }}" aria-expanded="false" aria-controls="collapse{{ tarefa.tarefa_id }}">
+                    {{ tarefa.titulo }}
+                </button>
+            </h2>
+            <div id="collapse{{ tarefa.tarefa_id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ tarefa.tarefa_id }}" data-bs-parent="#tarefaAccordion">
+                <div class="accordion-body">
+                    {{ tarefa.descricao }}
+                </div>
+            </div>
+        </div>
+        <a class="btn btn-verde mt-2 mb-2 btn-sm" href="{{ tarefa.tarefa_id }}/editar_tarefa">Editar</a>
+        <a onclick="return confirm('Deseja excluir?')" class="btn btn-danger mt-2 mb-2 btn-sm fw-bold" href="{{ tarefa.tarefa_id }}/apagar_tarefa">Excluir</a>
+        {% endfor %}
+    </div>    
+</div>
+{% endblock principal %}

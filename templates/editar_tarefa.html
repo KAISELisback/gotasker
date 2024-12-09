@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block principal %}
+<div class="container">
+    <a class="btn btn-verde mt-4" href="{{url_for('tarefa_bp.minhas_tarefas')}}">Voltar para minhas tarefas</a>
+    <br></br>
+    <h1 class="text-center text-dark">Editar Tarefa</h1>
+    <br>
+    {% for mensagem in get_flashed_messages(with_categories=True) %}
+        <div class="alert alert-{{ mensagem[0] }}">
+            {{ mensagem[1] }}
+        </div>
+    {% endfor %}
+    <form action="{{ url_for('tarefa_bp.editar_tarefa', tarefa_id=tarefa.tarefa_id) }}" class="bg-verde" method="POST">
+        <div class="mb-3">
+            <label class="form-label text-dark">Título</label>
+            <input type="text" class="form-control" value="{{tarefa.titulo}}" name="titulo" id="titulo" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label text-dark">Descrição</label>
+            <textarea type="text" class="form-control" name="descricao" id="descricao" required>{{tarefa.descricao}}</textarea required>
+        </div>
+        <button type="submit" class="btn btn-verde">Salvar</button>
+    </form>
+</div>
+{% endblock principal %}

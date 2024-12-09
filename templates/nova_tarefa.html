@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block principal %}
+<div class="container">
+    <a class="btn btn-verde mt-4" href="{{url_for('tarefa_bp.inicio')}}">Voltar ao início</a>
+    <br></br>
+    <h1 class="text-center text-dark">Nova Tarefa</h1>
+    <br>
+    {% for mensagem in get_flashed_messages(with_categories=True) %}
+        <div class="alert alert-{{ mensagem[0] }}">
+            {{ mensagem[1] }}
+        </div>
+    {% endfor %}
+    <form action="{{url_for('tarefa_bp.nova_tarefa')}}" class="bg-light" method="POST">
+        <div class="mb-3">
+            <label class="form-label text-dark bg-transparent">Título</label>
+            <input type="text" class="form-control custom-input" name="titulo" id="titulo" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label bg-transparent">Descrição</label>
+            <textarea type="text" class="form-control custom-input" name="descricao" id="descricao" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-verde">Salvar</button>
+    </form>
+</div>
+{% endblock principal %}
