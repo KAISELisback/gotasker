@@ -3,4 +3,4 @@
  supermercado ou qualquer coisa que ele queira salvar e ter acesso
  posteriormente. Cada usuário pode se registrar e criar um login com usuário
  de senha, onde terá acesso somente às suas próprias anotações.
- imagens do site: https://drive.google.com/drive/folders/1B0ylC7UgHwGVgoCUC6X31h3vzI93iZoq
+ imagens: https://drive.google.com/drive/folders/1B0ylC7UgHwGVgoCUC6X31h3vzI93iZoq
